@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -100,33 +101,115 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: screenWidth * 0.05),
+                  padding: EdgeInsets.only(
+                      left: screenWidth * 0.05, right: screenWidth * 0.025),
                   child: SizedBox(
-                    width: screenWidth * .4,
-                    height: screenHeight * .3,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: FittedBox(
-                        child: Text(
-                          "jake pascoe",
-                          style: TextStyle(
-                              color: Colors.orange,
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic)
-                        ),
+                    width: screenWidth * .1,
+                    height: screenHeight * .005,
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: RichText(
+                        text: TextSpan(
+                            text: "jake pascoe",
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => widget));
+                              },
+                            style: TextStyle(
+                                color: Colors.orange,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic)),
                       ),
                     ),
                   ),
                 ),
-                const Text(
-                  'Test',
+                Padding(
+                  padding: EdgeInsets.only(right: screenWidth * 0.005),
+                  child: SizedBox(
+                    width: screenWidth * .04,
+                    height: screenHeight * .005,
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: RichText(
+                        text: TextSpan(
+                            text: "github",
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => widget));
+                              },
+                            style: TextStyle(
+                                color: Colors.white60,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic)),
+                      ),
+                    ),
+                  ),
                 ),
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                Padding(
+                  padding: EdgeInsets.only(right: screenWidth * 0.005),
+                  child: SizedBox(
+                    width: screenWidth * .0075,
+                    height: screenHeight * .005,
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: RichText(
+                        text: TextSpan(
+                            text: "/",
+                            style: TextStyle(
+                                color: Colors.white60,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic)),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: screenWidth * 0.05),
+                  child: SizedBox(
+                    width: screenWidth * .05,
+                    height: screenHeight * .005,
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: RichText(
+                        text: TextSpan(
+                            text: "contact",
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => widget));
+                              },
+                            style: TextStyle(
+                                color: Colors.white60,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic)),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
+          ),
+          Row(
+            children: [
+              Padding(
+                  padding: EdgeInsets.only(top: screenHeight * .025),
+                  child: SizedBox(
+                    width: screenWidth * .25,
+                    height: screenHeight * .005,
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Image.asset("assets/swishy_ball_orange.gif"),
+                    ),
+                  )),
+            ],
           ),
         ],
       ),
